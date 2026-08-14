@@ -50,4 +50,4 @@ None of them talk to each other directly. Each just owns its one moment, and bet
 
 ## License
 
-Each skill carries its own MIT license (see its own repository). This README is documentation only.
+MIT 
