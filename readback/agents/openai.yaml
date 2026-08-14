@@ -1,0 +1,4 @@
+interface:
+  display_name: "Readback"
+  short_description: "Append-only map of how ideas and decisions changed"
+  default_prompt: "Use $readback to record what changed in my thinking here."

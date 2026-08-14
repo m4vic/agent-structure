@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mandate"
+  short_description: "Check what was actually authorised, before acting"
+  default_prompt: "Use $mandate to check whether this action is inside what I actually asked for."

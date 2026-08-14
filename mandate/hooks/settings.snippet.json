@@ -1,0 +1,18 @@
+{
+  "_comment": "Mandate hook. Merge the 'hooks' key into ~/.claude/settings.json or <project>/.claude/settings.json. If a 'hooks' key already exists, merge the PreToolUse array rather than replacing it. Only one rule here on purpose: Claude Code's Auto Mode already blocks destructive commands (git reset --hard, git clean, rm -rf, teardown). It does not catch writing into another project, because that action is only wrong relative to what was asked.",
+
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PROJECT_DIR}/.claude/hooks/mandate-outside-cwd.sh",
+            "statusMessage": "Mandate: checking path scope"
+          }
+        ]
+      }
+    ]
+  }
+}
