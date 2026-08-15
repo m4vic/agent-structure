@@ -48,6 +48,8 @@ A typical build touches several of these without any explicit hand-off:
 
 None of them talk to each other directly. Each just owns its one moment, and between them, most of the ordinary ways an agent quietly goes wrong have something watching.
 
+
 ## License
+
 
 MIT 
