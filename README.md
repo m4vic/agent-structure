@@ -1,4 +1,4 @@
-# agent-structure (ASA)
+# agent-structure
 
 
 **A**gent **S**tructure **A**lgorithms - a set of skills for making your agentic AI work algorithmically structured.
