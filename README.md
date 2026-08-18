@@ -1,6 +1,8 @@
 # agent-structure (ASA)
 
+
 **A**gent **S**tructure **A**lgorithms - a set of skills for making your agentic AI work algorithmically structured.
+
 
 Working with an AI agent for real, over weeks, fails in ways a permission system and a green test suite don't catch. Not because the agent is malicious — because its defaults trend toward the cheaper version of events: do a bit more than was asked, forget why an earlier decision was made, declare something done because it compiled. Each skill in this family exists to catch one of those defaults, at the exact moment it happens. New failure modes get their own skill and a new row below, same as any other library grows.
 
