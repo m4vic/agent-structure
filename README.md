@@ -1,57 +1,39 @@
-# agent-structure
+# agent-structure (ASA)
 
+**Agent Structure Algorithms** is my personal, daily-use collection of focused skills for creating tools and systems with Codex, Claude Code, Antigravity, or another compatible coding agent.
 
-**A**gent **S**tructure **A**lgorithms - a set of skills for making your agentic AI work algorithmically structured.
-
-
-Working with an AI agent for real, over weeks, fails in ways a permission system and a green test suite don't catch. Not because the agent is malicious — because its defaults trend toward the cheaper version of events: do a bit more than was asked, forget why an earlier decision was made, declare something done because it compiled. Each skill in this family exists to catch one of those defaults, at the exact moment it happens. New failure modes get their own skill and a new row below, same as any other library grows.
+It gives an agent practical structure at the moments that matter: before acting, when a decision is settled, before calling work complete, and when documenting code for future readers. Start by loading `agent-structure`, then let its focused skills apply when their triggers occur. Try an individual skill when you need it, or use the whole family as a working method.
 
 | Skill | Catches | One-line rule |
 |---|---|---|
-| **[mandate](mandate/)** — Authority | doing more than was asked | approval covers one thing, one place, once |
-| **[readback](readback/)** — Memory | losing why a decision was made | append-only record, written only when the user says yes |
-| **[groundtruth](groundtruth/)** — Truth | declaring success without checking | plan on disk, diff checked, claim verified |
+| **[mandate](mandate/)** - Authority | doing more than was asked | approval covers one thing, one place, once |
+| **[readback](readback/)** - Memory | losing why a decision was made | record approved reasoning for later work |
+| **[groundtruth](groundtruth/)** - Truth | declaring success without checking | plan on disk, diff checked, claim verified |
+| **[commenter](commenter/)** - Clarity | code that hides important context | explain what a reader cannot infer from the code |
 
-Each row is an algorithm, not a loose guideline — a fixed trigger, a fixed procedure, a fixed exit condition. The steps live in each skill's own `SKILL.md`; this table is the index, not a copy of them.
+Each skill is an algorithm, not a loose guideline: it has a clear trigger, a focused procedure, and an exit condition. The detailed steps live in each skill's `SKILL.md`; this README is the index.
 
 ## Why separate skills, not one big one
 
-Each covers a different moment and a different question:
+Each skill owns a different moment and a different question:
 
-- **mandate** fires *before* an action — "did the user actually ask for this, here, now?"
-- **readback** fires *after* a decision — "is the reasoning behind this written down anywhere?"
-- **groundtruth** fires at build, publish, and done — "is the plan on disk, is the diff clean, was this actually checked?"
+- **mandate** fires before an action: "Did the user actually ask for this, here, now?"
+- **readback** fires after a decision: "Will the reasoning behind this still exist in the next session?"
+- **groundtruth** fires before a substantial build, publication, or completion claim: "Is the plan written down and has the result been checked against reality?"
+- **commenter** fires when code is documented: "Does this explain the intent, contract, and non-obvious behavior at the right detail level?"
 
-They're independent on purpose. A project can install any subset — none of them depends on another being present. They're documented together because they share a root cause, not a codebase: an agent's default is the path of least resistance, and each skill is a specific, narrow push back against one version of that default.
-
-## Install
-
-Each is its own skill, installed the normal way:
-
-```bash
-git clone https://github.com/<you>/mandate     ~/.claude/skills/mandate
-git clone https://github.com/<you>/readback    ~/.claude/skills/readback
-git clone https://github.com/<you>/groundtruth ~/.claude/skills/groundtruth
-```
-
-Same layout for Codex (`~/.codex/skills/<name>`) or any tool that reads the Agent Skills format — the `name`/`description` frontmatter contract is identical across tools; only the install path differs.
+They are independent by design. Install or use the skills you need, but load `agent-structure` when you want the shared working method.
 
 ## How they interact in practice
 
-A typical build touches several of these without any explicit hand-off:
+1. `groundtruth` puts a plan in `IMPLEMENTATION_PLAN.md` before a substantial build starts.
+2. Work happens. When a design decision is settled, changed, or rejected, `readback` asks whether to preserve the reasoning.
+3. If a possible next step reaches beyond what the user requested, `mandate` checks authority before acting.
+4. When code needs documentation, `commenter` adds meaningful comments at beginner, intermediate, or advanced detail levels.
+5. Before work is called complete, `groundtruth` requires real verification instead of a claim based only on reasoning or passing tests.
 
-1. **groundtruth (build-plan)** — before real work starts, the plan lands in `IMPLEMENTATION_PLAN.md`, not just chat.
-2. Work happens. A decision gets made, reversed, or an approach gets rejected —
-3. **readback** asks: *"log this?"* On yes, it's appended, verbatim, with which agent wrote it.
-4. Partway through, a next step outside what was actually asked comes up (touch another project, push, rewrite history) —
-5. **mandate** stops and asks first: one sentence, what it needs, why.
-6. Work looks finished —
-7. **groundtruth (reality-check)** asks whether this was actually run against something real before the claim is made, and **groundtruth (publish-check)** scans the diff before it goes anywhere public.
+The skills do not need direct coordination. Each protects one recurring failure mode, and together they keep long-running agent work deliberate, understandable, and verifiable.
 
-None of them talk to each other directly. Each just owns its one moment, and between them, most of the ordinary ways an agent quietly goes wrong have something watching.
+## Use it
 
-
-## License
-
-
-MIT 
+Use the normal skill location for your agent, such as `~/.codex/skills/<name>` for Codex or the equivalent skill directory for another compatible tool. The skills use the Agent Skills `SKILL.md` format.
