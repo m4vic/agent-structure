@@ -1,6 +1,6 @@
 # Agent-Structure-Algorithms
 
-**Agent Structure Algorithms** is my personal, daily-use collection of focused skills for creating tools and systems with Codex, Claude Code, Antigravity, or another compatible coding agent.
+**Agent Structure** is my personal, daily-use collection of focused skills for creating tools and systems with Codex, Claude Code, Antigravity, or another compatible coding agent.
 
 It gives an agent practical structure at the moments that matter: before acting, when a decision is settled, before calling work complete, and when documenting code for future readers. Start by loading `agent-structure`, then let its focused skills apply when their triggers occur. Try an individual skill when you need it, or use the whole family as a working method.
 
