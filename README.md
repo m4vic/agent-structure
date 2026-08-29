@@ -1,4 +1,4 @@
-# agent-structure (ASA)
+# Agent-Structure-Algorithms
 
 **Agent Structure Algorithms** is my personal, daily-use collection of focused skills for creating tools and systems with Codex, Claude Code, Antigravity, or another compatible coding agent.
 
