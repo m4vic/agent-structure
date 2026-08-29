@@ -11,6 +11,8 @@ It gives an agent practical structure at the moments that matter: before acting,
 | **[groundtruth](groundtruth/)** - Truth | declaring success without checking | plan on disk, diff checked, claim verified |
 | **[commenter](commenter/)** - Clarity | code that hides important context | explain what a reader cannot infer from the code |
 | **[node-map](node-map/)** - Structure | re-reading unchanged code every session | one node per file, updated only when the file changes |
+| **[mentor](mentor/)** - Recall | the agent quietly doing the coding for you | the user writes every line; the agent explains, assigns, and reviews only |
+| **[architect](architect/)** - Assembly | approving a diff you never actually read | the agent hands over one chunk at a time in chat; the user merges it in by hand |
 
 Each skill is an algorithm, not a loose guideline: it has a clear trigger, a focused procedure, and an exit condition. The detailed steps live in each skill's `SKILL.md`; this README is the index.
 
@@ -23,8 +25,10 @@ Each skill owns a different moment and a different question:
 - **groundtruth** fires before a substantial build, publication, or completion claim: "Is the plan written down and has the result been checked against reality?"
 - **commenter** fires when code is documented: "Does this explain the intent, contract, and non-obvious behavior at the right detail level?"
 - **node-map** fires after a change lands: "Is the structural map of what connects to what still accurate, without re-reading everything?"
+- **mentor** fires when the user is deliberately relearning to code by hand: "Am I about to write code the user asked to write themselves?"
+- **architect** fires when the user wants to assemble the codebase from agent-provided pieces: "Is this chunk small enough, and explained enough, for the user to place it themselves?"
 
-They are independent by design. Install or use the skills you need, but load `agent-structure` when you want the shared working method.
+`mentor` and `architect` are mutually exclusive per chunk of work — pick the one matching how the user wants to build right now, or switch between them mid-session as the difficulty of a given piece warrants. They are independent by design. Install or use the skills you need, but load `agent-structure` when you want the shared working method.
 
 ## How they interact in practice
 

@@ -14,6 +14,8 @@ An agent's default, left alone, is the path of least resistance: act a little be
 3. **[groundtruth](groundtruth/)** - Truth. Before starting real work, before publishing, and before claiming done: is the plan on disk, is the diff clean, and was this actually verified?
 4. **[commenter](commenter/)** - Clarity. When code needs documentation: does it explain what a future reader cannot infer from the code, at the detail level they need?
 5. **[node-map](node-map/)** - Structure. After a change lands: is the workspace's structural map (what each file does, what it connects to) still accurate, or does it need a cheap incremental update?
+6. **[mentor](mentor/)** - Recall. When the user wants to relearn or build hands-on skill: the user writes every line; the agent explains, assigns, and reviews, never implements.
+7. **[architect](architect/)** - Assembly. When the user wants to build hands-on but faster: the agent hands over one chunk at a time in chat; the user merges each piece into the file themselves.
 
 ## How to use this
 
@@ -26,6 +28,8 @@ Let each skill fire on its own trigger:
 - A substantial build, publish action, or completion claim invokes `groundtruth`.
 - A request to add, improve, or review code comments invokes `commenter`.
 - A landed multi-file change, a `git commit`, or a request to map/index a workspace invokes `node-map`.
+- A stated intent to relearn or build hands-on skill, writing every line themselves, invokes `mentor`.
+- A stated intent to build hands-on but by assembling agent-provided chunks in chat invokes `architect`.
 
 More skills can be added in the same way: a recurring failure mode earns a focused algorithm with a clear trigger and exit condition.
 
@@ -36,3 +40,5 @@ More skills can be added in the same way: a recurring failure mode earns a focus
 - [groundtruth](groundtruth/) - Truth
 - [commenter](commenter/) - Clarity
 - [node-map](node-map/) - Structure
+- [mentor](mentor/) - Recall
+- [architect](architect/) - Assembly
