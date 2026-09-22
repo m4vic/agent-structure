@@ -1,0 +1,17 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+# AppleDouble sidecars -- a ._.git once made it into this tree
+._*
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Python / build noise
+__pycache__/
+*.py[cod]
+*.log
+local-artifacts/

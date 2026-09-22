@@ -1,0 +1,3 @@
+# Decision record: quotes the user verbatim and names paths and dead ends.
+# Tracking it is a deliberate opt-in, not a default. See SKILL.md.
+.readback/
