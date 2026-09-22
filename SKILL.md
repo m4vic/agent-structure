@@ -16,6 +16,7 @@ An agent's default, left alone, is the path of least resistance: act a little be
 5. **[node-map](node-map/)** - Structure. After a change lands: is the workspace's structural map (what each file does, what it connects to) still accurate, or does it need a cheap incremental update?
 6. **[mentor](mentor/)** - Recall. When the user wants to relearn or build hands-on skill: the user writes every line; the agent explains, assigns, and reviews, never implements.
 7. **[architect](architect/)** - Assembly. When the user wants to build hands-on but faster: the agent hands over one chunk at a time in chat; the user merges each piece into the file themselves.
+8. **[drawalong](drawalong/)** - Shape. When the user wants to understand how a system fits together: the user draws it one piece at a time in their own tool; the agent guides, verifies, and never produces the finished diagram.
 
 ## How to use this
 
@@ -30,6 +31,7 @@ Let each skill fire on its own trigger:
 - A landed multi-file change, a `git commit`, or a request to map/index a workspace invokes `node-map`.
 - A stated intent to relearn or build hands-on skill, writing every line themselves, invokes `mentor`.
 - A stated intent to build hands-on but by assembling agent-provided chunks in chat invokes `architect`.
+- A stated intent to understand a system by drawing it, or a bare "next" after a drawing piece, invokes `drawalong`.
 
 More skills can be added in the same way: a recurring failure mode earns a focused algorithm with a clear trigger and exit condition.
 
@@ -42,3 +44,4 @@ More skills can be added in the same way: a recurring failure mode earns a focus
 - [node-map](node-map/) - Structure
 - [mentor](mentor/) - Recall
 - [architect](architect/) - Assembly
+- [drawalong](drawalong/) - Shape
